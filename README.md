@@ -1,32 +1,54 @@
-# What is this lab about?
-- why we should use lambda.
-- using OOP in the program.
-- how we work and associate with other poeple with github.
 
-# Project structure
-In this project we have 3 files
-- README.md
-    - it's like the description of the project for more understanding
-- Cities.csv
-    - It's a raw data of cities information for using in main program.It contain countries cities temperature and position
-- data_processing.py
-    - This file is main program for this project
+# Lab Overview
+This lab we add **Database class** for two tables can be joined together. We have cities and countries tables in this lab.
 
-# Detailed explanation of each class, detailing attributes and key methods
-- class Dataloader
-    - stores the starting directory for locating data files
-    - Load a CSV file and return its contents as a list of dictionaries
-- class Table
-    - attribute : list of dict objects it's data storage for the class. It holds the collection of cities
-    - key methods : 
-        - init(self, cities)
-            - storing the input list of cities in the self.cities
-        - filter(self, condition)
-            - filter cities with the condition
-        - aggregate(self, aggregation_function, aggregation_key)
-            - calculates a single summary value
-        - table(self)
-            - return list of cities in object
+# Project Structure
+    oop_lab3/
+    │
+    ├── Cities.csv # for cities table
+    ├── Countries.csv # for Countries table
+    ├── data_processing.py # main program
+    └── README.md
+---
+# Design Overview
+### **explanation for each class**
+---
+### DataLoader 
+    loads CSV files into lists of dictionaries  
 
+**Attributes**
+- base_path : Directory where CSV files are located.
+
+**Methods**
+- load_csv(filename) : Reads a CSV file and returns a list of dictionaries.
+
+---
+### DB
+    Stores multiple Table objects.
+
+**Attributes**
+- table : List of tables stored in the database.
+
+**Methods**
+- insert(table) : Adds a table to the DB.  
+- search(name) : Retrieves a table by its name.
+
+---
+### Table
+    a dataset and provide operations on the data.
+
+**Attributes**
+- table_name : Name of the table.  
+- table : List of dictionaries.
+
+**Methods**
+- filter(condition) : Returns a new table that match the condition.  
+- aggregate(function, key) : Applies an aggregation function to values in a specific list.  
+- join(other, key) : Joins two tables and returns a new table.  
+- __ str __() : Returns a string of the table.
+
+---
 # How to test and run your code
-run the code with Cities.csv file in directory and look at the output.ff the code runs successfully and the Cities.csv file is found, the output printed to the console correctly
+you can run the file data_processing.py and check if the result of test case match the table in Cities.csv and Countries.csv files
+
+
